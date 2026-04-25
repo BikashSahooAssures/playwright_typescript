@@ -1,0 +1,80 @@
+Playwright Sheet
+--------------------------------------------------------------------------------------------------------------
+
+intall playwright
+-  npm init playwright@latest
+
+
+import {test, expect} from "@playwright/test"
+
+test("first demo test", async ({page})=>{
+
+	line no 1
+	line no 2
+	await page.goto("page link");
+	await expect(page).toHaveTitle("string");
+	console.log("title");
+
+})
+
+[async should be use before the page ref. var and await should be use before all the page actions.]
+[ if return type is promise, then we must use await, and before await - async must]
+
+to check version
+- npx playwright --version
+
+to execute test
+- npx playwright test
+- npx playwright test 'file name' 'file name' [to run specific file]
+
+
+to show report
+- npx playwright show-report
+
+by default execute in headless mode, to run in headed mode
+- npx playwright test --headed
+
+by default run on three browsers
+- npx playwright test 'file name' --project=browser name [chromium / firefox / webkit]
+
+to run a specific test
+- npx playwright test -g 'testing' [testing is the word the method name contains]
+
+to run on UI mode
+- npx playwright test --ui
+
+to perform debug using code execution
+- npx playwright test 'file name' --debug
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Locators [return type Locators]
+------------------------------------------------------------------------------------
+
+https://playwright.dev/docs/locators
+
+import {test, expect, Locator} from "@playwright/test"
+
+test("first locator file", async({page})=>{
+
+    await page.goto("link");
+
+
+
+    1.  page.getByAltText() - locate images or similar with 'alt' attrbute 
+    
+    const logo:locator = await page.getByAltText("string") [here locator need to import, Locator is a fixture ]
+    await expect(logo).toBeVisible();
+
+    
+
+
+
+
+
+
+
+})
